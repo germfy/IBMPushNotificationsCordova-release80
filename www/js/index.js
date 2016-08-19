@@ -162,7 +162,7 @@ function unregisterDevice() {
 
 var notificationReceived = function(message) {
     //navigator.notification.alert(JSON.stringify(message));
-    navigator.notification.alert(JSON.stringify(message.alert.body), doNothing, "DevConnect");
+    navigator.notification.alert(message.alert, doNothing, "DevConnect");
 };
 
 function doNothing() {

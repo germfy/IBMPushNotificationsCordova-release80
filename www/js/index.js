@@ -162,7 +162,16 @@ function unregisterDevice() {
 
 var notificationReceived = function(message) {
     //navigator.notification.alert(JSON.stringify(message));
-    navigator.notification.alert(message.alert, doNothing, "DevConnect");
+    var devicePlatform = device.platform;
+    if(devicePlatform == "iOS")
+    {
+        navigator.notification.alert(message.alert.body, doNothing, "DevConnect");
+    }
+    else
+    {
+        navigator.notification.alert(message.alert, doNothing, "DevConnect");
+    }
+    
 };
 
 function doNothing() {
